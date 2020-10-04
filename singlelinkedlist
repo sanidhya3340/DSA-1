@@ -1,48 +1,5 @@
 #include<stdio.h>
-#include<stdlib.h>
-struct node{
-    int data;
-    struct node *link;
-};
-int n;
-struct node *root=NULL;
-void insert();
-void add();
-void display();
-void del();
-void reverse();
-void insert()
 
-{
-struct node*temp;
-    temp=(struct node *)malloc(sizeof(struct node));
- printf("Enter the node data:-\n");
-    scanf("%d",&temp->data);
-    temp->link=NULL;
-    if(root==NULL)
-    {
-        root=temp;
-    }
-    else
-    {
-      struct node *p;
-      p=root;
-      while(p->link!=NULL)
-      {
-          p=p->link;
-      }
-      p->link=temp;
-    }
-}
-int main()
-{ int i;
-printf("Enter the number of nodes:-\n");
-scanf("%d",&n);
-for(i=0;i<n;i++)
-{
-    insert();
-}
-display();
 printf("\n");
 reverse();
 display();
@@ -120,6 +77,7 @@ else{
     q->link=NULL;
     free(q);
 }
+
 }
 void reverse()
     {
