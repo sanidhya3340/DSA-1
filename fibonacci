@@ -9,7 +9,7 @@
       for(j=0;j<=i;j++)
       {
           a[k]=d;
-          t=d+e;
+          t=d+e
           e=d;
           d=t;
           k++;
