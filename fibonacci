@@ -1,5 +1,5 @@
 #include<stdio.h>
-int main()
+int main(
 {
     int n;int d;int i;int j;
     int a[100];int k=0;int t;int temp;
