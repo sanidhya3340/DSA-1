@@ -2,8 +2,7 @@
 using namespace std;
 int main()
 {
-int n,i;int x,y,a[100],b[100];int min[100];
-cin>>n;int j;int c;int k=0;
+
 while(n--)
 {int h=0;
     cin>>x;
