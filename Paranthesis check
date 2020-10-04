@@ -1,4 +1,4 @@
-//infix to postfix conversion
+//infix to postfix conversion by vicky
 #include<stdio.h>
 #include<string.h>
 int stack[20];
