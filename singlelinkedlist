@@ -1,68 +1,106 @@
 #include<stdio.h>
-#include<stdlib.h>
-struct node
-{
-    int data;
-    struct node*next;
-};
-struct node* head=NULL;
-struct node* tail=NULL;
 
-void create_nodes(int n)
-{
-    for(int i=0;i<n;i++)
-        {
-        struct node*newnode=(struct node*)malloc(sizeof(struct node));
-        printf("Enter the data : \n");
-        scanf("%d",&newnode->data);
-        newnode->next=NULL;
-        if(head==NULL)
-        {
-            head=newnode;
-            tail=newnode;
-        }
-        else
-        {
-            tail->next=newnode;
-            tail=newnode;
-        }
-        }
+printf("\n");
+reverse();
+display();
 }
-
-void display()
+void display(){
+    struct node*temp;
+temp=root;
+if(temp==NULL)
 {
-    struct node*current=head;
-    if(head==NULL)
+printf("empty");
+}
+else{
+    while(temp!=NULL)
     {
-        printf("Linked list is empty .\n");
-        return;
-    }
-    while(current!=NULL)
-    {
-        printf("%d->  \n",current->data);
-        current=current->next;
+        printf("%d->",temp->data);
+        temp=temp->link;
     }
 }
-
-void delete_all(int n)
-{
-    struct node*now=head;
-    while(head!=NULL)
+}
+void add()
+{struct node*temp;
+struct node*p;
+ temp=(struct node *)malloc(sizeof(struct node));
+ printf("Enter the node data:-\n");
+    scanf("%d",&temp->data);
+    int loc;
+    printf("Enter the location:-\n");
+    scanf("%d",&loc);
+    int i=1;
+    if(loc>n)
     {
-        now=head;
-        head=head->next;
-        free(now);
+        printf("Invalid location");
     }
-}
-int main()
-{
-    int n;
-    printf("Enter the number of nodes:- \n");
-    scanf("%d",&n);
-    create_nodes(n);
-    display();
-    delete_all(n);
-    display();
-    return 0;
+    else{
+        p=root;
+        while(i<loc)
+        {
+            p=p->link;i++;
+        }
+    }
+    temp->link=NULL;
+    temp->link=p->link;
+    p->link=temp;
+
 
 }
+void del()
+{
+ struct node *temp;
+ int loc;
+ printf("enter the location:\n");
+ scanf("%d",&loc);
+ if(loc>n)
+ {
+     printf("Invalid Location\n");
+ }
+
+else if(loc==1)
+{
+    temp=root;
+    root=temp->link;
+    temp->link=NULL;
+    free(temp);
+}
+else{
+    int i=1;struct node*p=root;
+    struct node*q;
+    while(i<loc-1)
+    {
+        p=p->link;
+        i++;
+    }
+    q=p->link;
+    p->link=q->link;
+    q->link=NULL;
+    free(q);
+}
+
+}
+void reverse()
+    {
+        int temp;
+        int i,j;
+        struct node*p,*q;p=root;q=root;
+        i=0;
+        j=n-1;
+        while(i<j)
+        {
+            int k=0;
+            while(k<j)
+            {
+                q=q->link;
+                k++;
+            }
+            temp=p->data;
+            p->data=q->data;
+            q->data=temp;
+            i++;j--;
+            p=p->link;
+            q=root;       }
+        
+    }
+
+
